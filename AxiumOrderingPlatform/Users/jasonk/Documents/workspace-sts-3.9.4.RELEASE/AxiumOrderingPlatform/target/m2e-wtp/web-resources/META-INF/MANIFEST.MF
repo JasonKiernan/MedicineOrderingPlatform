@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: AxiumOrderingPlatform
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: jasonk
+Implementation-Vendor-Id: test
+Build-Jdk: 1.8.0_161
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/AxiumOrderingPlatform
+Created-By: Maven Integration for Eclipse
+

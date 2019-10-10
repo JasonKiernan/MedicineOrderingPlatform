@@ -1,0 +1,47 @@
+  <!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet"
+ href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/Footer-with-social-icons.css" type="text/css" />
+<link rel="stylesheet" href="/css/index.css" type="text/css"/>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- jQuery library -->
+<script
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+  <div th:fragment="footer">
+
+<div class="content"></div>
+  <footer id="myFooter">
+   <div class="container">
+    <div class="row">
+     <div class="col-sm-12 myCols">
+      <h5>About Us</h5>
+      <ul>
+       <li><a href="" ng-click="contact = !contact">Contact Us</a></li>
+       <li ng-show="contact"><a>info@medical-card.ie</a></li>
+      </ul>
+   </div>
+</div>
+</div>
+   <div class="footer-copyright">
+    <p>© 2018 Medicine Finder - Your Gateway to Better Information</p>
+   </div>
+  </footer>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org" xmlns:ng="http://angularjs.org" ng-app lang="en">
+<head>
+
+
+<title>Index</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+ <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet"/>
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet"/>
+        <script src="http://code.angularjs.org/1.1.0/angular.min.js"></script>
+
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+ <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/index.js"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
+	integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+	crossorigin="anonymous"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+	integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+	crossorigin="anonymous"></script>
+
+<script>
+$(function(){
+$("#myInput").keyup(function(event) {
+	  // Cancel the default action, if needed
+	  // Number 13 is the "Enter" key on the keyboard
+	  if (event.keyCode === 13) {
+	    // Trigger the button element with a click
+	   $("#myBtn").click();
+
+	  }
+	});
+});
+</script>
+
+
+</head>
+<body ng-app="addIPUFile" ng-controller="addIPUFilecontroller">
+
+<div th:each="files : ${allfiles}">
+<p th:text="${files.ananum}"></p>
+</div>
+	<div class="container-fluid">
+		<div th:replace="fragments/header :: header"></div>
+		&nbsp; &nbsp;
+
+
+
+		<div>
+			&nbsp; &nbsp;
+			<div class="container-fluid">
+				<h2>Search for a Product</h2>
+				<div>
+					<input style="height:3em;" id="myInput" type="text" placeholder="Search by Brand or Ingredient"
+						class="form-control search-query"  ng-model="query" ng-change="search()"/> &nbsp;
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<button id="myBtn" type="submit"style="float: right; width: 40em;" class="btn btn-primary"
+							ng-click="isReplyFormOpen = !isReplyFormOpen">Search</button>
+					</div>
+				</div>
+				&nbsp; &nbsp; &nbsp;
+
+				<table ng-show="isReplyFormOpen" class="table table-striped">
+				<thead>
+					<tr>
+						<th style="text-align: left;">Tradename</th>
+						<th >Ingredient</th>
+
+						<th style="text-align: center;">Is It Covered?</th>
+					</tr>
+					</thead>
+					 <tfoot>
+                    <td colspan="6">
+                        <div class="pagination center">
+                            <ul>
+                                <li ng-class="{disabled: currentPage == 0}">
+                                    <a href ng-click="prevPage()">« Prev</a>
+                                </li>
+                                <li ng-repeat="n in range(pagedItems.length) | limitTo:8"
+                                    ng-class="{active: n == currentPage} pagination-sm"
+                                ng-click="setPage()">
+                                    <a href ng-bind="n + 1">1</a>
+                                </li>
+                                <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                                    <a href ng-click="nextPage()">Next »</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tfoot>
+                <tbody>
+					
+					<tr ng-repeat="item in pagedItems[currentPage]">
+					
+						<td style="text-align: left;">{{ item.tradename }}</td>
+						<td>{{ item.genname }}</td>
+
+						<td ng-if="item.gmsno != ''" style="text-align: center;"><i
+							style="color: green;" class="fas fa-check-circle"></i></td>
+
+						<td ng-if="item.gmsno == ''" style="text-align: center;"><i
+							style="color: red;" class="fas fa-times-circle"></i></td>
+
+					</tr>
+					</tbody>
+				</table>
+
+  
+    <hr />
+					
+					
+					
+			</div>
+
+
+
+			<div class="container-fluid">
+				<HR SIZE="6">
+				<div class="row">
+
+					<!-- Start of Image Grid System-->
+					<div class="col-md-6">
+
+						<div class="thumbnail">
+							<a href="https://www.onlinepharmacy.ie"> <img
+								src="/images/Online6.jpg" alt="Lights" style="height:20em;"/>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<a href="https://www.onlinepharmacy.ie">
+
+							<h1 style="color: black; font: bold; text-align: center;">OnlinePharmacy.ie
+								- Looking Out For Your Health & Wellbeing</h1>
+						</a> &nbsp; &nbsp;&nbsp; &nbsp;
+						<ul>
+							<li>Get Advice from our Pharmacists Online</li>
+							<li>Home Delivery</li>
+							<li>Over 4,000 Products in Store</li>
+							<li>Price Guarantee - We won't be Beaten on Price</li>
+							<li>Buy Over The Counter Medicine & Pharmacy Shop Items
+								Online</li>
+							<li>Ask us about our Prescription Medicines Prices (Not for
+								sale online)</li>
+
+
+						</ul>
+					</div>
+
+				</div>
+				<HR SIZE="12">
+
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+
+
+	<!-- End of Jumbotron & search form-->
+
+
+	<div class="gallery">
+		<!-- Start of Image Grid System-->
+		<div class="gallery row">
+			<div class="col-md-4">
+				<div class="thumbnail">
+					<img src="/images/image1.jpeg" alt="Lights"
+						style="width: 100%" />
+						<div class="caption"></div>
+				
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="thumbnail">
+					 <img src="/images/image2.jpeg" alt="Lights"
+						style="width: 100%" />
+						<div class="caption"></div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="thumbnail">
+					<img src="/images/image3.jpeg" alt="Lights"
+						style="width: 100%" />
+						<div class="caption"></div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="thumbnail">
+					 <img src="/images/image4.jpeg" alt="Lights"
+						style="width: 100%" />
+						<div class="caption"></div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="thumbnail">
+					 <img src="/images/image5.jpeg" alt="Lights"
+						style="width: 100%" />
+						<div class="caption"></div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="thumbnail">
+					 <img src="/images/image6.jpeg" alt="Lights"
+						style="width: 100%" />
+						<div class="caption"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	</div>
+	<!-- Start of Jumbotron & search form-->
+
+
+	</div>
+
+
+
+	<!-- Start of Footer -->
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</div>
+</body>
+
+</html>

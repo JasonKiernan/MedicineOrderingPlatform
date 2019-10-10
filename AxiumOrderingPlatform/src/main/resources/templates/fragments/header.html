@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet"
+ href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/Footer-with-social-icons.css" type="text/css" />
+<link rel="stylesheet" href="/css/index.css" type="text/css"/>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- jQuery library -->
+<script
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+   <!-- Beginning of Navbar -->
+	<div th:fragment="header">
+  <nav class="navbar navbar-inverse" th:fragment="header">
+   <div class="container-fluid">
+    <div class="navbar-header">
+     <a class="navbar-brand" href="/" style="color: #ff6600;font-weight:bold;">Medical-Card.ie</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <li class="active"><a href="/files/GMSApplicationForm.pdf"style="color: white;font-weight:bold;">Download Medical Card Application Form</a></li>
+     <li><a href="https://www.hse.ie/eng/services/list/1/schemes/forms/drugs-payment-scheme/drugs-payment-scheme-application-form.pdf"style="color: white;font-weight:bold;">Drug Payment Scheme Application Form</a></li>
+
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+     <li>
+      <p class="navbar-btn">
+       <a href="#search" class="btn btn-default" style="color: #ff6600;font-weight:bold;">What's Covered on Medical Card/Drug Payment Card</a>
+      </p>
+     </li>
+     <li><a href="#search"><span class="glyphicon glyphicon-search"></span>
+      </a></li>
+    </ul>
+   </div>
+  </nav>
+  <!-- End of Navbar -->
+  </div>
+</body>
+</html>
